@@ -9,4 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bin": {
+    "watchit": "index.js"
+  }
 }
