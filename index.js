@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// Require the Lodash.debounce module
+const debounce = require("lodash-debounce");
+
 // Require the Chokidar module
 const chokidar = require("chokidar");
 
