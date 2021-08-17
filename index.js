@@ -1,3 +1,15 @@
 #!/usr/bin/env node
 
-console.log("Execution!");
+// Require the Chokidar module
+const chokidar = require("chokidar");
+
+chokidar.watch(".")
+    .on("add", () => {
+        console.log("A file has been added!");
+    })
+    .on("change", () => {
+        console.log("The file has been changed!");
+    })
+    .on("unlink", () => {
+        console.log("A file has been unlinked!");
+    });
