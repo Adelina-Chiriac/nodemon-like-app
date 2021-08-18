@@ -23,7 +23,12 @@ program
         const name = filename || "index.js";
 
         // Check to see if this filename actually exists
-        await fs.promises.access(name);
+        try {
+            await fs.promises.access(name);
+        }
+        catch (err) {
+            throw new Error(`The file ${name} could not be found!`);
+        }
 
         // Add a debounce function to the add event, in order to counteract the chokidar initial file observation, which triggered the add event for each existing file
         const startProgram = debounce(() => {
