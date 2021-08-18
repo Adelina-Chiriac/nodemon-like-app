@@ -20,12 +20,8 @@ program
 
         chokidar.watch(".")
             .on("add", startProgram)
-            .on("change", () => {
-                console.log("The file has been changed!");
-            })
-            .on("unlink", () => {
-                console.log("A file has been unlinked!");
-    });
+            .on("change", startProgram)
+            .on("unlink", startProgram);
     });
 
 program.parse(process.argv);
