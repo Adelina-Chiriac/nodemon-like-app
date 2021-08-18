@@ -12,6 +12,9 @@ const program = require("caporal");
 // Require the File System module
 const fs = require("fs");
 
+// Require the Child Processes module
+const { spawn } = require("child_process");
+
 program
     .version("0.0.1")
     .argument("[filename]", "Name of a file to execute")
@@ -32,7 +35,7 @@ program
 
         // Add a debounce function to the add event, in order to counteract the chokidar initial file observation, which triggered the add event for each existing file
         const startProgram = debounce(() => {
-            console.log("A file has been added!");
+            spawn("node", [name], { stdio: "inherit" })
         }, 100);
 
         chokidar.watch(".")
